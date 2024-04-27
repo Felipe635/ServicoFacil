@@ -1,0 +1,49 @@
+#topo{
+    background-color: #e6e5f8 !important;
+}
+
+.logo{
+    width: 100px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.btn-cad:hover{
+    transition: ease-in-out 0.1s;
+}
+
+.nav-item{
+    display: flex;
+    list-style-type: none;
+    padding: 5px;
+}
+
+.login{
+    width: 60px;
+    height: 60px;
+}
+
+.login-box{
+    display: flex;
+    flex-direction: row;
+    color: #2e7bb4 !important;
+    font-weight: bold;
+}
+
+.btn-cad{
+    background-color: #2e7bb4;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+    padding: 5px;
+    border: #2e7bb4 solid 2px;
+}
+
+.btn-cad:hover{
+    background-color: #e6e5f8;
+    color: #2e7bb4 !important;
+    transition: 0.1s ease-in-out !important;
+}
