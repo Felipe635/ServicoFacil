@@ -1,0 +1,92 @@
+.botao-form{
+    background-color: #2e7bb4;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 15px;
+    border: #2e7bb4 solid 2px;
+    width: 15%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.botao-form:hover{
+    background-color: #fff;
+    color: #2e7bb4;
+    transition: 0.1s ease-in-out;
+}
+
+.link{
+ text-decoration: none;
+ color: gray;
+}
+
+.containerr{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.form-order{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.form-order-button{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.form-order-button button{
+     padding: 10px;
+     margin: 15px;
+     background: white;
+     border: none;
+}
+
+.titulo-form{
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.formulario{
+    width: 70% !important;
+    margin-top: 50px;
+}
+
+.form-control{
+    border: #2e7bb4 2px solid !important;
+    border-radius: 25px !important;
+}
+
+.form-select{
+    border: #2e7bb4 2px solid !important;
+    border-radius: 25px !important;
+}
+
+.text-form{
+    color: gray;
+}
+
+.link{
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 700px)  {
+
+    .botao-form {
+        width: 25%;
+    }
+
+    .botao-voltar {
+        width: 25%;
+    }
+
+}

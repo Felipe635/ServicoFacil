@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/nav-bar.css}" rel="stylesheet">
+    <link th:href="@{/css/cadastro.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Cadastro</title>
+</head>
+<body>
+
+<div class="containerr">
+    <div class="formulario">
+        <h2 class="titulo-form">Cadastre-se</h2>
+
+        <form th:action="@{/user/save}" th:object="${user}" method="post">
+            <div class="form-floating mb-3 row">
+                <input type="text" class="form-control" name="name" id="floatingInput" th:field="*{name}">
+                <label class="text-form" for="floatingInput">Nome</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+            <div class="form-floating mb-3 row">
+                <input type="password" class="form-control" name="password" id="floatingInput" th:field="*{password}">
+                <label class="text-form" for="floatingInput">Senha</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            </div>
+            <div class="form-floating mb-3 row">
+                <input type="email" class="form-control" name="email" id="floatingInput" th:field="*{email}">
+                <label class="text-form" for="floatingInput">Email</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+            <div class="form-floating mb-3 row">
+                <input type="text" class="form-control" name="cpf" id="floatingInput" th:field="*{cpf}">
+                <label class="text-form" for="floatingInput">CPF</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
+            </div>
+            <div class="form-floating mb-3 row">
+                <input type="tel" class="form-control" name="phone" id="floatingInput" th:field="*{phone}">
+                <label class="text-form" for="floatingInput">Telefone</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+            </div>
+            <div class="form-floating mb-3 row">
+                <input type="text" class="form-control" name="zipcode" id="floatingInput" th:field="*{zipcode}">
+                <label class="text-form" for="floatingInput">CEP</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}"></span>
+            </div>
+            <div class="form-floating mb-3 row">
+                <input type="text" class="form-control" name="address" id="floatingInput" th:field="*{address}">
+                <label class="text-form" for="floatingInput">Endereço</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+            </div>
+            <div class="form-floating mb-3 row">
+                <input type="text" class="form-control" name="district" id="floatingInput" th:field="*{district}">
+                <label class="text-form" for="floatingInput">Bairro</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('district')}" th:errors="*{district}"></span>
+            </div>
+            <div class="form-floating mb-3 row">
+                <input type="text" class="form-control" name="addressNumber" id="floatingInput" th:field="*{addressNumber}">
+                <label class="text-form" for="floatingInput">Numero</label>
+                <span class="text-danger" th:if="${#fields.hasErrors('addressNumber')}" th:errors="*{addressNumber}"></span>
+            </div>
+            <button type="submit" class="botao-form" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Cadastrar
+            </button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
