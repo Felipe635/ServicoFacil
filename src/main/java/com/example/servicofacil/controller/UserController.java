@@ -33,7 +33,7 @@ public class UserController {
     public String userSave(@Valid @ModelAttribute("user") User user, BindingResult result) {
 
         if (result.hasErrors()) {
-            return "cadastro-cli";
+            return "user-register";
         }
 
         try {

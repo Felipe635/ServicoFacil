@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
+
     @GetMapping("/cadastro")
     public String exibirFormulario(Model model){
         model.addAttribute("user",
                 new User());
-        return "cadastro-cli";
+        return "user-register";
     }
 
     @PostMapping("/cadastro")
     public String processarFormulario(@Valid @ModelAttribute("user") User user, BindingResult result){
         if(result.hasErrors()){
-            return "cadastro-cli";
+            return "user-register";
         }
         return "redirect:/nav-bar";
     }
