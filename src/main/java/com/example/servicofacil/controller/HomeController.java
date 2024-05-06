@@ -30,5 +30,9 @@ public class HomeController {
     public String exibirSucesso() {
         return "nav-bar";
     }
+    @GetMapping("/")
+    public String home() {
+        return "nav-bar";
+    }
 
 }
