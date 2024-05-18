@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments :: html_head">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/prestador-detalhes.css">
-    <title>Detalhes Prestador</title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
 
 <div th:replace="fragments :: menu" ></div>
 
-<div class="cima">
-    <div class="foto"></div>
-    <h2 class="nome">Nome</h2>
-    <h3 class="local">Cidade / Bairro</h3>
-    <ul class="menu">
-        <li class="menu-item">Serviço 1</li>
-        <li class="menu-item">Serviço 2</li>
-        <li class="menu-item">Serviço 3</li>
-    </ul>
-</div>
-<div class="meio">
-    <a href="" class="btn">Agendar Serviço</a>
-</div>
-<div class="baixo">
-    <ul class="menu-avali">
-        <li><a href="" class="menu-avali-item">Avaliação 1 (se rolar)</a></li>
-    </ul>
-</div>
+<div class="dash">
+    <div class="cima">
+        <div class="foto"></div>
+        <h2 class="nome">Nome</h2>
+        <h3 class="local">Cidade / Bairro</h3>
+        <ul class="menu">
+            <li class="menu-item">Serviço 1</li>
+            <li class="menu-item">Serviço 2</li>
+            <li class="menu-item">Serviço 3</li>
+        </ul>
+    </div>
+    <div class="meio">
+        <a href="" class="btn">Agendar Serviço</a>
+    </div>
+    <div class="baixo">
+        <ul class="menu-avali">
+            <li><a href="" class="menu-avali-item">Avaliação 1 (se rolar)</a></li>
+        </ul>
+    </div>
 
+</div>
 
 <div th:replace="fragments :: footer" ></div>
 

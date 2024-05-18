@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -26,7 +26,7 @@ public class UserController {
     public String showUserRegister(Model model) {
         model.addAttribute("user",
                 new User());
-        return "user-register";
+        return "user-registor";
     }
 
     @PostMapping("/save")

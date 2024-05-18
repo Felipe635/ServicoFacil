@@ -9,6 +9,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     // Consulta personalizada para encontrar usuários por nome
-    @Query("SELECT u FROM users u WHERE u.name = ?1 AND u.password = ?2")
+    @Query("SELECT u FROM User u WHERE u.name = ?1 AND u.password = ?2")
     List<User> getUserByLogin(String name, String password);
+    
 }
