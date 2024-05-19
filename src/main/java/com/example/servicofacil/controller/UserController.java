@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 
@@ -31,7 +31,7 @@ public class UserController {
     @PostMapping("/save")
     public String userSave(@Valid @ModelAttribute("user") User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "cadastro-cli";
+            return "user-register";
         }
 
         try {
@@ -42,7 +42,7 @@ public class UserController {
             return "cadastro-cli";
         }
 
-        return "redirect:/nav-bar";
+        return "nav-bar";
     }
 
     @PostMapping("/signin")
