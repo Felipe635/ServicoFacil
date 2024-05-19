@@ -16,14 +16,14 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void userSave(User user){
+    public void userSave(User user) {
         userRepository.save(user);
     }
 
     public List<User> UserGetByLogin(User user) throws Exception {
-        if(user.getName() == null || user.getPassword() == null)
-            throw new Exception("Parametros invalidos");
-
-        return userRepository.getUserByLogin(user.getName(), user.getPassword());
+        if (user.getLogin() == null || user.getPassword() == null) {
+            throw new Exception("Parâmetros inválidos");
+        }
+        return userRepository.getUserByLoginAndPassword(user.getLogin(), user.getPassword());
     }
 }

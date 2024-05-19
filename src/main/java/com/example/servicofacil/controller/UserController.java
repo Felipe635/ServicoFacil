@@ -15,23 +15,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("user")
 public class UserController {
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping("/register-view")
     public String showUserRegister(Model model) {
-        model.addAttribute("user",
-                new User());
+        model.addAttribute("user", new User());
         return "user-register";
     }
 
     @PostMapping("/save")
     public String userSave(@Valid @ModelAttribute("user") User user, BindingResult result) {
-
         if (result.hasErrors()) {
             return "cadastro-cli";
         }
@@ -39,7 +37,9 @@ public class UserController {
         try {
             userService.userSave(user);
         } catch (Exception ex) {
-
+            ex.printStackTrace();
+            result.reject("saveError", "Houve um erro ao salvar o usuário.");
+            return "cadastro-cli";
         }
 
         return "redirect:/nav-bar";
@@ -47,17 +47,17 @@ public class UserController {
 
     @PostMapping("/signin")
     public String userSignin(@ModelAttribute("user") User user, BindingResult result) {
-
         try {
             var userList = userService.UserGetByLogin(user);
 
             if (userList.isEmpty()) {
+                result.reject("loginError", "Credenciais inválidas.");
+                return "login-view";
             } else {
+                return "redirect:/user-dashboard";
             }
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
-
-        return "redirect:/nav-bar";
     }
 }
