@@ -8,11 +8,24 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/home")
 public class HomeController {
+
+    @GetMapping("/login")
+    public String exibirFormularioLogin(Model model){
+        model.addAttribute("user",
+                new User());
+        return "search";
+    }
+
+    @PostMapping("/login")
+    public String processarFormularioLogin(@Valid @ModelAttribute("user") User user, BindingResult result){
+        if(result.hasErrors()){
+            return "user-register";
+        }
+        return "redirect:/search";
+    }
 
     @GetMapping("/cadastro")
     public String exibirFormulario(Model model){
