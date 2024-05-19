@@ -1,0 +1,40 @@
+.banner{
+    background-color: #e6e5f8;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+}
+
+.img-inicio{
+    width: 600px;
+    height: 400px;
+}
+
+.texto{
+    font-size: 40px;
+    width: 500px;
+    color: #2e7bb4;
+}
+
+.sobre{
+    font-size: 22px;
+    color: #2e7bb4;
+    text-align: center;
+    width: 350px;
+}
+
+.banner-sobre{
+    display: flex;
+    justify-content: center;
+}
+
+.banner-texto{
+    margin-left: 10px;
+}
+
+.titulo-sobre{
+    margin-top: 10px;
+    color: #2e7bb4;
+    text-align: center;
+}
