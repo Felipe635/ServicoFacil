@@ -16,7 +16,7 @@ public class HomeController {
     public String exibirFormularioLogin(Model model){
         model.addAttribute("user",
                 new User());
-        return "search";
+        return "login";
     }
 
     @PostMapping("/login")
@@ -24,7 +24,7 @@ public class HomeController {
         if(result.hasErrors()){
             return "user-register";
         }
-        return "redirect:/search";
+        return "redirect:/login";
     }
 
     @GetMapping("/cadastro")
