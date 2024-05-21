@@ -2,25 +2,16 @@ package com.example.servicofacil.controller;
 
 import com.example.servicofacil.model.User;
 import com.example.servicofacil.service.UserService;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping("/register-view")
     public String showUserRegister(Model model) {
@@ -29,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public String userSave(@Valid @ModelAttribute("user") User user, BindingResult result) {
+    public String userSave(@RequestBody User user, BindingResult result) {
         if (result.hasErrors()) {
             return "user-register";
         }
@@ -42,15 +33,15 @@ public class UserController {
             return "cadastro-cli";
         }
 
-        return "nav-bar";
+        return "cadastrado";
     }
 
-    @PostMapping("/signin")
+/*    @PostMapping("/signin")
     public String userSignin(@ModelAttribute("user") User user, BindingResult result) {
         try {
-            var userList = userService.UserGetByLogin(user);
+            var userList = userService.findByLogin(user);
 
-            if (userList.isEmpty()) {
+            if (userList) {
                 result.reject("loginError", "Credenciais inválidas.");
                 return "login-view";
             } else {
@@ -59,5 +50,5 @@ public class UserController {
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
-    }
+    }*/
 }

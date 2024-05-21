@@ -2,10 +2,11 @@ package com.example.servicofacil.service;
 
 import com.example.servicofacil.model.User;
 import com.example.servicofacil.repository.UserRepository;
+import com.example.servicofacil.utils.Encoded;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserService {
@@ -16,14 +17,26 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
     public void userSave(User user) {
+
+        User existUser = userRepository.findByLogin(user.getLogin());
+
+        if(existUser != null){
+            throw new Error("Usuario já existente");
+        }
+
+        user.setPassword(passwordEncoder().encode(user.getPassword()));
         userRepository.save(user);
     }
 
-    public List<User> UserGetByLogin(User user) throws Exception {
-        if (user.getLogin() == null || user.getPassword() == null) {
-            throw new Exception("Parâmetros inválidos");
-        }
-        return userRepository.getUserByLoginAndPassword(user.getLogin(), user.getPassword());
+    public User findByLogin(String login) throws Exception {
+
+        var existUser = userRepository.findByLogin(login);
+        Encoded encoded = new Encoded();
+
+       return existUser;
     }
 }

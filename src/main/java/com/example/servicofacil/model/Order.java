@@ -1,3 +1,4 @@
+/*
 package com.example.servicofacil.model;
 
 import lombok.Getter;
@@ -34,3 +35,4 @@ public class Order {
     @Column(name = "dt_cadastro")
     private Timestamp dtCadastro;
 }
+*/
