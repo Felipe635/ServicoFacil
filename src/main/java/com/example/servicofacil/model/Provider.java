@@ -17,11 +17,12 @@ import java.security.Timestamp;
 public class Provider {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_provider")
     private Integer idProvider;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "login")
+    private String login;
 
     @Column(name = "password")
     private String password;

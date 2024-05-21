@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `users` CASCADE;
-CREATE TABLE `users` (
-  id BIGINT NOT NULL AUTO_INCREMENT,
+CREATE TABLE users (
+  id_user INTEGER PRIMARY KEY,
   name VARCHAR(255),
   password VARCHAR(255),
   email VARCHAR(255),
@@ -9,14 +9,13 @@ CREATE TABLE `users` (
   zipcode VARCHAR(255),
   address VARCHAR(255),
   address_number VARCHAR(255),
-  district VARCHAR(255),
-  PRIMARY KEY (id)
+  district VARCHAR(255)
 );
 
 -- Criação da tabela 'provider'
 CREATE TABLE provider (
     id_provider INTEGER PRIMARY KEY,
-    username VARCHAR(255),
+    login VARCHAR(255),
     password VARCHAR(255),
     email VARCHAR(255),
     cpf VARCHAR(20),
@@ -32,17 +31,18 @@ CREATE TABLE provider (
 CREATE TABLE service (
     id_service INTEGER PRIMARY KEY,
     id_provider INTEGER,
+    service_description VARCHAR(255),
     service_value VARCHAR(255),
     dt_cadastro TIMESTAMP,
     FOREIGN KEY (id_provider) REFERENCES provider(id_provider)
 );
 
--- Criação da tabela 'order'
-CREATE TABLE "order" ( 
+-- Criação da tabela 'requestOrder'
+CREATE TABLE requestOrder ( 
     id_order INTEGER PRIMARY KEY,
     id_user INTEGER,
     id_service INTEGER,
     dt_cadastro TIMESTAMP,
-    FOREIGN KEY (id_user) REFERENCES users(id),
+    FOREIGN KEY (id_user) REFERENCES users(id_user),
     FOREIGN KEY (id_service) REFERENCES service(id_service)
 );

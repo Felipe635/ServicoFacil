@@ -1,4 +1,3 @@
-/*
 package com.example.servicofacil.model;
 
 import lombok.Getter;
@@ -17,22 +16,22 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "order")  
+@Table(name = "requestOrder")  
 public class Order {
 
     @Id
     @Column(name = "id_order")
     private Integer idOrder;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_service")
-    private Service service;
+    private ServiceDetail service;
 
     @Column(name = "dt_cadastro")
     private Timestamp dtCadastro;
 }
-*/
+

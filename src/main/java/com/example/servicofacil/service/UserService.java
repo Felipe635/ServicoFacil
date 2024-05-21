@@ -39,4 +39,9 @@ public class UserService {
 
        return existUser;
     }
+    public User findUserById(Long id) {
+
+        var idUser = userRepository.findUserByIdUser(id);
+        return idUser;
+    }
 }

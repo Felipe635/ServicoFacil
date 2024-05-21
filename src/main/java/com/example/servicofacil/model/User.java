@@ -20,7 +20,8 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_user")
+    private Long idUser;
 
     @NotEmpty(message = "O login é obrigatório")
     @Column(name = "login", unique = true)
@@ -29,6 +30,27 @@ public class User {
     @NotEmpty(message = "A senha é obrigatória")
     @Column(name = "password")
     private String password;
+
+    @NotEmpty(message = "O e-mail é obrigatório")
+    private @Setter String email;
+
+    @NotEmpty(message = "O CPF é obrigatório")
+    private @Setter String cpf;
+
+    @NotEmpty(message = "O telefone é obrigatório")
+    private @Setter String phone;
+
+    @NotEmpty(message = "O CEP é obrigatório")
+    private @Setter String zipcode;
+
+    @NotEmpty(message = "O endereço é obrigatório")
+    private @Setter String address;
+    
+    @NotEmpty(message = "O numero é obrigatório")
+    private @Setter String addressNumber;
+
+    @NotEmpty(message = "O bairro é obrigatório")
+    private @Setter String district;
 
     @ManyToMany
     private List<Role> roles;

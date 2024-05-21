@@ -15,15 +15,18 @@ import java.security.Timestamp;
 @AllArgsConstructor
 @Entity
 @Table(name = "service")
-public class Service {
+public class ServiceDetail {
 
     @Id
     @Column(name = "id_service")
-    private Integer idService;
+    private Long idService;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_provider")
     private Provider provider;
+
+    @Column(name = "service_description")
+    private String serviceDescription;
 
     @Column(name = "service_value")
     private String serviceValue;

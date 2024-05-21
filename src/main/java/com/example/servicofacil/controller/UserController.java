@@ -3,11 +3,13 @@ package com.example.servicofacil.controller;
 import com.example.servicofacil.model.User;
 import com.example.servicofacil.service.UserService;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
@@ -20,7 +22,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public String userSave(@RequestBody User user, BindingResult result) {
+    public String userSave(User user, BindingResult result) {
         if (result.hasErrors()) {
             return "user-register";
         }
@@ -33,7 +35,7 @@ public class UserController {
             return "cadastro-cli";
         }
 
-        return "cadastrado";
+        return "search";
     }
 
 /*    @PostMapping("/signin")
