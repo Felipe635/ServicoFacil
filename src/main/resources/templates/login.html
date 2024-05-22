@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments :: head">
+<head th:replace="fragments :: head-login">
 
     <script th:src="@{/js/main.js}"></script>
 </head>
 <body>
 
-<div th:replace="fragments :: menu" ></div>
+<div th:replace="fragments :: menu-cadastro" ></div>
 
 <div class="containerr">
 
@@ -22,7 +22,7 @@
             <label for="floatingPassword">Senha</label>
         </div>
         <button class="botao-form" form="loginForm" type="submit">Login</button>
-        <a href="user-register.html" class="link">Cadastre-se</a>
+        <a href="/cadastro" class="link">Cadastre-se</a>
     </form>
 </div>
 

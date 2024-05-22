@@ -14,11 +14,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Serviço Fácil</title>
 </head>
+
+<head th:fragment="head-cadastro">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/nav-bar.css}" rel="stylesheet">
+    <link th:href="@{/css/footer.css}" rel="stylesheet">
+    <link th:href="@{/css/cadastro.css}" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Serviço Fácil</title>
+</head>
+
+<head th:fragment="head-login">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/nav-bar.css}" rel="stylesheet">
+    <link th:href="@{/css/footer.css}" rel="stylesheet">
+    <link th:href="@{/css/cadastro.css}" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Serviço Fácil</title>
+</head>
+
 <body>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary" id="topo" th:fragment="menu">
     <div class="container-fluid">
-        <img src="css/img/logo1.png" alt="" class="logo">
+        <a href="/">
+        <img src="/css/img/logo1.png" alt="" class="logo">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,13 +71,40 @@
     </div>
 </nav>
 
+<nav class="navbar navbar-expand-lg bg-body-tertiary" id="topo" th:fragment="menu-search">
+    <div class="container-fluid">
+        <a href="/">
+            <img src="/css/img/logo1.png" alt="" class="logo">
+        </a>
+
+        <div class="login-box">
+            <li class="nav-item">
+                <li class="nav-item">
+                   Seja bem-vindo, Fulano!
+                </li>
+            </li>
+        </div>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary" id="topo" th:fragment="menu-cadastro">
+    <div class="container-fluid">
+        <a href="/">
+            <img src="/css/img/logo1.png" alt="" class="logo">
+        </a>
+    </div>
+</nav>
+
 <footer class="rodape" th:fragment="footer">
     <div class="contato">
         <p class="rodape-titulo">Precisa de ajuda?</p>
         <p class="rodape-titulo">Entre em contato conosco.</p>
         <p>Telefone: (11)953701738</p>
         <p>Email: suporte@servicofacil.com</p>
-        <a href="#topo"><img src="css/img/seta.png" class="img-rodape-seta" alt=""></a>
+        <a href="#topo"><img src="/css/img/seta.png" class="img-rodape-seta" alt=""></a>
     </div>
 </footer>
 
