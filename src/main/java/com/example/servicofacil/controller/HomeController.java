@@ -25,6 +25,12 @@ public class HomeController {
         return "search";
     }
 
+    //tinha que fazer uma verificação se o cliente ta logado ou não :)
+    @GetMapping("/client-dashboard")
+    public String exibirPerfilCliente(){
+        return "client-dashboard";
+    }
+
     //@GetMapping("/cadastro")
     //public String exibirFormulario(Model model){
     //    model.addAttribute("user",
