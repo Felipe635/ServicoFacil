@@ -39,6 +39,13 @@
 	padding: 7px;
 }
 
+.email-link {
+    color: black; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+}
+.email-link:hover {
+    color: gray; /* Cor do texto quando o mouse está sobre o link */
+}
 
 @media (max-width: 925px){
 	.container{
