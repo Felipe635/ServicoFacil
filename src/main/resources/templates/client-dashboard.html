@@ -3,12 +3,13 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
-<div th:replace="fragments :: menu" ></div>
+<div th:replace="fragments :: menu-cadastro" ></div>
 
-<div class="dash">
+<div>
     <div class="cima">
         <h2>Painel do Cliente</h2>
         <div class="foto"></div>
+        <br>
         <p>Nome</p>
     </div>
     <div class="baixo">
@@ -19,7 +20,28 @@
         </ul>
     </div>
 
+    <!--não gostei muito como ficou, vou pensar em outro layout pra essa div-->
+    <div>
+        <h4 class="texto-agenda">Agendamentos</h4>
+        <div class="lista-resultados">
+            <div class="card mb-3" style="max-width: 740px;">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Nome do Prestador</h5>
+                            <p class="card-text">Detalhes do serviço - aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                            <h6 class="card-title">Valor do serviço</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>
+
+
 
 <footer th:replace="fragments :: footer" ></footer>
 
