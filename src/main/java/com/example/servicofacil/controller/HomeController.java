@@ -22,7 +22,7 @@ public class HomeController {
 
     @GetMapping("/search")
     public String exibirBusca(){
-        return "search";
+        return "search_guest";
     }
 
     //tinha que fazer uma verificação se o cliente ta logado ou não :)

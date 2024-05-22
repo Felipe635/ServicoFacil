@@ -4,6 +4,8 @@ import com.example.servicofacil.model.User;
 import com.example.servicofacil.service.UserService;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +38,14 @@ public class UserController {
         }
 
         return "search";
+    }
+
+    @GetMapping("/some-page")
+    public String somePage(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String login = authentication.getName(); // ou obtenha o nome do usuário de outro modo, conforme necessário
+        model.addAttribute("login", login);
+        return "search"; // Retorna o nome da view
     }
 
 /*    @PostMapping("/signin")

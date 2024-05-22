@@ -63,7 +63,7 @@
                 </form>
             </li>
             <li class="nav-item">
-                <a class="btn-cad" href="/cadastro">Cadastre-se</a>
+                <a class="btn-cad" href="/user/register-view">Cadastre-se</a>
             </li>
         </div>
         </ul>
@@ -80,8 +80,27 @@
         <div class="login-box">
             <li class="nav-item">
                 <li class="nav-item">
-                   Seja bem-vindo, Fulano!
+                   Seja bem-vindo, <span th:text="${login}"> Fulano!</span>
                 <a class="link-perfil" href="/client-dashboard"> Ver Perfil</a>
+                </li>
+            </li>
+        </div>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary" id="topo" th:fragment="menu-search-guest">
+    <div class="container-fluid">
+        <a href="/">
+            <img src="/css/img/logo1.png" alt="" class="logo">
+        </a>
+
+        <div class="login-box">
+            <li class="nav-item">
+                <li class="nav-item">
+                   Seja bem-vindo Convidado! <span th:text="${login}"> </span>
+                <a class="link-perfil" href="/nav-bar">Sair</a>
                 </li>
             </li>
         </div>
