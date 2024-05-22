@@ -20,6 +20,11 @@ public class HomeController {
         return "escolhaCadastro";
     }
 
+    @GetMapping("/search")
+    public String exibirBusca(){
+        return "search";
+    }
+
     //@GetMapping("/cadastro")
     //public String exibirFormulario(Model model){
     //    model.addAttribute("user",
