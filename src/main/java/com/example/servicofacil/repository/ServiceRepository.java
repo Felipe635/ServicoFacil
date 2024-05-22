@@ -11,6 +11,6 @@ import com.example.servicofacil.model.ServiceDetail;
 public interface ServiceRepository extends JpaRepository<ServiceDetail, Long> {
     
 
-    Optional<ServiceDetail> findById(Long id_service);
+    ServiceDetail findByIdService(Long id_service);
 
 }

@@ -1,5 +1,6 @@
 package com.example.servicofacil.service;
 
+import java.sql.Timestamp;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,12 @@ public class OrderService {
     private OrderRepository orderRepository;
 
     public Order createOrder(User user, ServiceDetail service) {
+
         Order newOrder = new Order();
         newOrder.setUser(user);
         newOrder.setService(service);
+        newOrder.setDtCadastro(new Timestamp(System.currentTimeMillis()));
+
         return orderRepository.save(newOrder);
     }
 }

@@ -21,13 +21,9 @@ public class ServiceDetailService {
     @Autowired
     private ProviderRepository providerRepository;
 
-    public Optional<ServiceDetail> findById(Long id) {
-        var idService = serviceRepository.findById(id);
+    public ServiceDetail findById(Long id) {
+        var idService = serviceRepository.findByIdService(id);
 
-        if (!idService.isPresent()) {
-            System.out.println("ServiceDetail com o ID " + id + " não foi encontrado.");
-            return Optional.empty();
-        }
         return idService;
     }
 

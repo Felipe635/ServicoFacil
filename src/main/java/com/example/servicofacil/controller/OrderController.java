@@ -10,11 +10,16 @@ import com.example.servicofacil.service.UserService;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
+@RequestMapping("/order")
 public class OrderController {
 
     @Autowired
@@ -26,12 +31,25 @@ public class OrderController {
     @Autowired
     private ServiceDetailService serviceDetailService;
 
-    //@PostMapping("/createOrder")
-    //public Order createOrder(@RequestBody OrderRequest orderRequest) {
-    //    User user = userService.findUserById(orderRequest.getUserId());
-    //    Optional<ServiceDetail> service = serviceDetailService.findById(orderRequest.getIdService());
-    //    return orderService.createOrder(user, service);
-    //}
+ @PostMapping("/createOrder")
+    public ResponseEntity<?> createOrder(@RequestBody OrderRequest orderRequest) {
+        try {
+            User user = userService.findUserById(orderRequest.getUserId());
+            if (user == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+            }
+
+            ServiceDetail service = serviceDetailService.findById(orderRequest.getIdService());
+            if (service == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");
+            }
+
+            Order order = orderService.createOrder(user, service);
+            return ResponseEntity.ok(order);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating order");
+        }
+    }
 }
 
 class OrderRequest {
