@@ -11,6 +11,11 @@
     height: auto;
 }
 
+.img-perfil{
+    width: 25%;
+    height: auto;
+}
+
 .texto{
     font-size: 40px;
     width: 500px;
