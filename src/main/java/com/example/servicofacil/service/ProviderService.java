@@ -43,7 +43,7 @@ public class ProviderService {
     
     public Provider findProviderById(Long id){
         
-        var idProvider = providerRepository.findProviderByIdProvider(id);
+        var idProvider = providerRepository.findByIdProvider(id);
         return idProvider;
     }
 

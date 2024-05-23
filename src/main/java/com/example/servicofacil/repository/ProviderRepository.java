@@ -21,6 +21,7 @@ public interface ProviderRepository extends JpaRepository<Provider, Long> {
     Provider findByIdService(@Param("id_service") long id_service);*/
     Provider findByServiceDetailIdService(Long id_service);
     
-    Provider findProviderByIdProvider(Long id);
+    Provider findByIdProvider(Integer id_provider);
+    Provider findByIdProvider(Long id_provider);
 
 }

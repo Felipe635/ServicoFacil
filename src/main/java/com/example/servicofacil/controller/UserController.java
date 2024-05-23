@@ -23,6 +23,11 @@ public class UserController {
         return "user-register";
     }
 
+        /**
+     * Processa o salvamento de um usuário recebido do formulário de registro.
+     * Valida o objeto de usuário e, em caso de erros, retorna à página de registro.
+     * Retorna o nome da view dependendo do resultado da operação.
+     */
     @PostMapping("/save")
     public String userSave(User user, BindingResult result) {
         if (result.hasErrors()) {

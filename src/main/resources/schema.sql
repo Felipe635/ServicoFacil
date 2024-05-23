@@ -33,6 +33,7 @@ CREATE TABLE service (
     id_provider INTEGER,
     service_description VARCHAR(255),
     service_value VARCHAR(255),
+    service_name VARCHAR(255),
     dt_cadastro TIMESTAMP,
     FOREIGN KEY (id_provider) REFERENCES provider(id_provider)
 );
@@ -43,6 +44,7 @@ CREATE TABLE requestOrder (
     id_user INTEGER,
     id_provider INTEGER,
     description INTEGER,
+    service_value VARCHAR(255),
     dt_cadastro TIMESTAMP,
     FOREIGN KEY (id_user) REFERENCES users(id_user),
     FOREIGN KEY (id_provider) REFERENCES provider(id_provider)

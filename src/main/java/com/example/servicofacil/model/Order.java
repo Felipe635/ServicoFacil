@@ -35,6 +35,9 @@ public class Order {
     
     @Column(name = "description")
     private String description;
+    
+    @Column(name = "service_value")
+    private Double serviceValue;
 
     @Column(name = "dt_cadastro")
     private Timestamp dtCadastro;
