@@ -44,11 +44,13 @@
     </form>
 
     <div class="lista-resultados mt-4">
-        <div class="card mb-3">
+        <div th:each="provider : ${providers}" class="card mb-3" >
+<!--
             <img src="..." class="card-img-top" alt="Descrição da imagem">
+-->
             <div class="card-body">
-                <h5 class="card-title">Nome do Serviço</h5>
-                <p class="card-text">Descrição breve do serviço oferecido, com um toque mais humano e pessoal.</p>
+                <h5 th:text="${provider.idProvider}" class="card-title"></h5>
+                <p th:text="${provider.serviceDetail.serviceDescription}" class="card-text"></p>
             </div>
         </div>
     </div>

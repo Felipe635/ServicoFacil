@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `users` CASCADE;
 CREATE TABLE users (
   id_user INTEGER PRIMARY KEY,
-  name VARCHAR(255),
+  login VARCHAR(255),
   password VARCHAR(255),
   email VARCHAR(255),
   cpf VARCHAR(255),
@@ -41,8 +41,9 @@ CREATE TABLE service (
 CREATE TABLE requestOrder ( 
     id_order INTEGER PRIMARY KEY,
     id_user INTEGER,
-    id_service INTEGER,
+    id_provider INTEGER,
+    description INTEGER,
     dt_cadastro TIMESTAMP,
     FOREIGN KEY (id_user) REFERENCES users(id_user),
-    FOREIGN KEY (id_service) REFERENCES service(id_service)
+    FOREIGN KEY (id_provider) REFERENCES provider(id_provider)
 );

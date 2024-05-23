@@ -40,6 +40,13 @@ public class ProviderService {
         return providerRepository.findAll();
     }
 
+    
+    public Provider findProviderById(Long id){
+        
+        var idProvider = providerRepository.findProviderByIdProvider(id);
+        return idProvider;
+    }
+
     public List<Provider> findByServiceName(String searchString){
 
         List<ServiceDetail> serviceDetailList = serviceRepository.searchService(searchString);

@@ -1,8 +1,10 @@
 package com.example.servicofacil.controller;
 
 import com.example.servicofacil.model.Order;
+import com.example.servicofacil.model.Provider;
 import com.example.servicofacil.model.User;
 import com.example.servicofacil.service.OrderService;
+import com.example.servicofacil.service.ProviderService;
 import com.example.servicofacil.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,9 @@ public class OrderController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ProviderService providerService;
+
 
  @PostMapping("/createOrder")
     public ResponseEntity<?> createOrder(@RequestBody OrderRequest orderRequest) {
@@ -31,17 +36,17 @@ public class OrderController {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
             }
 
-/*
-            ServiceDetail service = serviceDetailService.findById(orderRequest.getIdService());
-            if (service == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");
-            }
-*/
 
-/*
-            Order order = orderService.createOrder(user, service);
-*/
-            Order order = new Order();
+            Provider provider = providerService.findProviderById(orderRequest.getIdService());
+            if (provider == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Provider not found");
+            }
+
+
+
+            Order order = orderService.createOrder(user, provider);
+
+            //Order order = new Order();
             return ResponseEntity.ok(order);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating order");

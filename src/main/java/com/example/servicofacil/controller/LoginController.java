@@ -35,13 +35,15 @@ public class LoginController {
     }
 
     @RequestMapping("/logged")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody User user, HttpServletResponse response) throws Exception {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getLogin(), user.getPassword()));
+    public String createAuthenticationToken()  {
+        //authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getLogin(), user.getPassword()));
+//
+        //final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getLogin());
+        //final String token = jwtTokenUtil.generateToken(userDetails);
+//
+        //return ResponseEntity.ok().body(new JwtResponse(token));
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getLogin());
-        final String token = jwtTokenUtil.generateToken(userDetails);
-
-        return ResponseEntity.ok().body(new JwtResponse(token));
+        return "search";
 
     }
 }

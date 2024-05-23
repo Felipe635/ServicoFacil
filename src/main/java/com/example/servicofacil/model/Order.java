@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import jakarta.persistence.*;
 import java.sql.Timestamp;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -20,17 +21,20 @@ import java.sql.Timestamp;
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_order")
-    private Integer idOrder;
+    private Long idOrder;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "id_user")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "id_service")
-    private ServiceDetail service;
+    @JoinColumn(name = "id_provider")
+    private Provider provider;
+    
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "dt_cadastro")
     private Timestamp dtCadastro;
