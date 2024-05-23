@@ -1,12 +1,14 @@
 package com.example.servicofacil.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.security.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Getter
@@ -18,19 +20,20 @@ import java.security.Timestamp;
 public class ServiceDetail {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_service")
     private Long idService;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_provider")
-    private Provider provider;
+    @Column(name = "service_value")
+    private double serviceValue;
 
     @Column(name = "service_description")
     private String serviceDescription;
 
-    @Column(name = "service_value")
-    private String serviceValue;
+    @Column(name = "service_name")
+    private String serviceName;
 
-    @Column(name = "dt_cadastro")
-    private Timestamp dtCadastro;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "serviceDetail", fetch = FetchType.LAZY)
+    private Set<Provider> providers = new HashSet<>();
 }

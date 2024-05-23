@@ -20,11 +20,12 @@ import java.sql.Timestamp;
 public class Order {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_order")
     private Integer idOrder;
 
     @ManyToOne
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "id")
     private User user;
 
     @ManyToOne

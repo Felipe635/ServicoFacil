@@ -1,15 +1,10 @@
 package com.example.servicofacil.controller;
 
+import com.example.servicofacil.service.ServiceDetailService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.servicofacil.model.ServiceDetail;
-import com.example.servicofacil.service.ServiceDetailService;
-
-import lombok.RequiredArgsConstructor;
 
 
 @Controller
@@ -21,7 +16,7 @@ public class ServiceController {
     private ServiceDetailService detailService;
 
     
-    @PostMapping("/saveService")
+/*    @PostMapping("/saveService")
     public String serviceSave(ServiceDetail serviceDetail, BindingResult result) {
         if (result.hasErrors()) {
             return "user-register";
@@ -36,5 +31,5 @@ public class ServiceController {
         }
 
         return "search";
-    }
+    }*/
 }

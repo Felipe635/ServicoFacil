@@ -1,16 +1,10 @@
 package com.example.servicofacil.service;
 
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
-
-import com.example.servicofacil.model.Provider;
 import com.example.servicofacil.model.ServiceDetail;
 import com.example.servicofacil.repository.ProviderRepository;
 import com.example.servicofacil.repository.ServiceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ServiceDetailService {
@@ -28,7 +22,7 @@ public class ServiceDetailService {
     }
 
         
-    public void serviceSave(ServiceDetail serviceDetail) {
+/*    public void serviceSave(ServiceDetail serviceDetail) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
@@ -41,5 +35,5 @@ public class ServiceDetailService {
         //novoServico.setDtCadastro(LocalDateTime.now());
         
         serviceRepository.save(novoServico);
-    }
+    }*/
 }
