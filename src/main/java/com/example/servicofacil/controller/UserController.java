@@ -39,10 +39,10 @@ public class UserController {
         } catch (Exception ex) {
             ex.printStackTrace();
             result.reject("saveError", "Houve um erro ao salvar o usuário.");
-            return "cadastro-cli";
+            return "user-register";
         }
 
-        return "search";
+        return "provider/provider-list";
     }
 
     @GetMapping("/some-page")
