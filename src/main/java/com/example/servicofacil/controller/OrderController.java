@@ -1,23 +1,18 @@
 package com.example.servicofacil.controller;
 
 import com.example.servicofacil.model.Order;
-import com.example.servicofacil.model.Provider;
-import com.example.servicofacil.model.User;
 import com.example.servicofacil.service.OrderService;
 import com.example.servicofacil.service.ProviderService;
 import com.example.servicofacil.service.UserService;
-
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/order")
@@ -38,6 +33,7 @@ public class OrderController {
      * orderRequest Contém os dados do usuário e do serviço solicitado.
      * Retorna o pedido criado ou uma mensagem de erro se algo falhar.
      */
+/*
  @PostMapping("/createOrder")
     public ResponseEntity<?> createOrder(@RequestBody OrderRequest orderRequest) {
         try {
@@ -61,6 +57,7 @@ public class OrderController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating order");
         }
     }
+*/
 
      /**
      * Recupera todos os pedidos existentes no sistema.
