@@ -72,8 +72,9 @@
         
         <div th:each="provider : ${providers}" class="card mb-3" >
             <a th:href="@{/provider/details/{id}(id=${provider.idProvider})}" class="card-body">
-                <h5 th:text="${provider.idProvider}" class="card-title"></h5>
+                <h5 th:text="${provider.username}" class="card-title"></h5>
                 <p th:text="${provider.serviceDetail.serviceDescription}" class="card-text"></p>
+                <h5 th:text="${provider.serviceDetail.serviceValue}" class="card-title"></h5>
             </a>
 
         </div>
