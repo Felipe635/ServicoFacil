@@ -45,7 +45,7 @@ public class Provider {
     private String zipcode;
 
     @OneToOne
-    @JoinColumn(name = "id_service")
+    @JoinColumn(name = "id_provider")
     @JsonBackReference
     private ServiceDetail serviceDetail;
 }
