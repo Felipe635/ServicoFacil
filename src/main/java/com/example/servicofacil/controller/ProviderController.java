@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/provider")
@@ -37,7 +39,7 @@ public class ProviderController {
     }
 
     @GetMapping("search")
-    public String seuMetodo(@RequestParam("search") String search, Model model) {
+    public String search(@RequestParam("search") String search, Model model) {
         List<Provider> providers = providerService.findByServiceName(search);
         model.addAttribute("providers", providers);
         return "search";
@@ -49,21 +51,11 @@ public class ProviderController {
         return "provider-register";
     }
 
-/*    @PostMapping("/save")
-    public String userSave(Provider provider, BindingResult result) {
-        if (result.hasErrors()) {
-            return "user-register";
-        }
+    @GetMapping("/detail/{IdProvider}")
+    public String getProvider(@PathVariable("IdProvider") String providerID, Model model) {
+        Optional<Provider> provider = providerService.findProviderByID(Integer.parseInt( providerID));
+        model.addAttribute("provider", provider.get());
+        return "provider-details";
+    }
 
-        try {
-            providerService.providerSave(provider);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            result.reject("saveError", "Houve um erro ao salvar o prestador.");
-            return "cadastroServico";
-        }
-
-        return "cadastroServico";
-    }*/
-    
 }

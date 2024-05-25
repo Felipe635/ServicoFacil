@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProviderService {
@@ -61,6 +62,10 @@ public class ProviderService {
         });
 
         return providerList;
+    }
+
+    public Optional<Provider> findProviderByID(int idProvider){
+        return providerRepository.findById(Long.valueOf(idProvider));
     }
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
