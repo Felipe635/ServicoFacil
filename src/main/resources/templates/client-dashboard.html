@@ -16,41 +16,15 @@
         <h4 class="texto-agenda">Agendamentos</h4>
         <div class="lista-agenda">
         <div class="card-agenda">
-            <h6 class="card-title">Nome do Prestador</h6>
-            <p class="card-texto">Detalhes do serviço</p>
-            <h6 class="card-title">Data de Agendamento</h6>
-            <h6 class="card-title">Valor</h6>
+            <h6 class="card-title">jose</h6>
+            <p th:text="${order.description}" class="card-texto">Detalhes do serviço</p>
+            <h6 th:text="${order.dtCadastro}" class="card-title">Data de Agendamento</h6>
+            <h6 th:text="${order.serviceValue}" class="card-title">Valor</h6>
         </div>
         </div>
     </div>
 
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    fetch('/order/getAllOrders')
-        .then(response => response.json())
-        .then(data => {
-            const container = document.querySelector('.lista-agenda');
-            data.forEach(order => {
-                const card = document.createElement('div');
-                card.className = 'card-agenda';
-                card.innerHTML = `
-                    <h6 class="card-title">${order.provider.username}</h6> <!-- Verifique se 'username' é o campo correto -->
-                    <p class="card-texto">${order.description || 'Descrição não disponível'}</p> <!-- Trata 'null' em 'description' -->
-                    <h6 class="card-title">${new Date(order.dtCadastro).toLocaleDateString()}</h6> <!-- Formata a data -->
-                    <h6 class="card-title">R$ ${order.provider.serviceValue || 'Preço não disponível'}</h6> <!-- Assume que há um campo 'price', adicione se necessário -->
-                `;
-                container.appendChild(card);
-            });
-        })
-        .catch(error => console.error('Error loading the orders:', error));
-});
-
-</script>
-    
-
-
 
 <footer th:replace="fragments :: footer" ></footer>
 

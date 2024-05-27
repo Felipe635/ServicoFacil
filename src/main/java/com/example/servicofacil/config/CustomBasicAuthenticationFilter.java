@@ -1,3 +1,4 @@
+/*
 package com.example.servicofacil.config;
 
 import com.example.servicofacil.model.User;
@@ -78,4 +79,4 @@ public class CustomBasicAuthenticationFilter extends OncePerRequestFilter {
     private String getHeader(HttpServletRequest request) {
         return request.getHeader(AUTHORIZATION);
     }
-}
+}*/

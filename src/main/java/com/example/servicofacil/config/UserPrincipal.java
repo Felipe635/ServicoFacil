@@ -1,3 +1,4 @@
+/*
 package com.example.servicofacil.config;
 
 import com.example.servicofacil.model.User;
@@ -53,3 +54,4 @@ public class UserPrincipal implements UserDetails {
         return true;
     }
 }
+*/

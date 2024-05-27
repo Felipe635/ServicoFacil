@@ -15,7 +15,9 @@
         </ul>
     </div>
     <div class="meio">
-        <p class="btn">Agendar Serviço</p>
+        <form th:action="@{/order/createOrder}" method="post">
+            <button type="submit" class="btn">Agendar Serviço</button>
+        </form>
     </div>
 <!--    <div class="baixo">
         <ul class="menu-avali">

@@ -1,15 +1,9 @@
 package com.example.servicofacil.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.ToString;
-
-
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.sql.Timestamp;
-import java.util.Optional;
 
 @Getter
 @Setter
@@ -17,11 +11,11 @@ import java.util.Optional;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "requestOrder")  
+@Table(name = "request_order")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_order")
     private Long idOrder;
 

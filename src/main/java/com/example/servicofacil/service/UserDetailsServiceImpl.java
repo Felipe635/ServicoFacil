@@ -1,6 +1,6 @@
+/*
 package com.example.servicofacil.service;
 
-import com.example.servicofacil.config.UserPrincipal;
 import com.example.servicofacil.model.User;
 import com.example.servicofacil.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,3 +28,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return UserPrincipal.create(user);
     }
 }
+*/

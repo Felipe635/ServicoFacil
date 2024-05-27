@@ -1,3 +1,4 @@
+/*
 package com.example.servicofacil.utils;
 
 import io.jsonwebtoken.Claims;
@@ -66,4 +67,4 @@ public class JwtTokenUtil {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package com.example.servicofacil.config;
 
 import com.example.servicofacil.service.UserDetailsServiceImpl;
@@ -58,3 +59,4 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
+*/
