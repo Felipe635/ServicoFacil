@@ -1,6 +1,8 @@
 package com.example.servicofacil.service;
 
 import com.example.servicofacil.model.Order;
+import com.example.servicofacil.model.Provider;
+import com.example.servicofacil.model.User;
 import com.example.servicofacil.repository.OrderRepository;
 import com.example.servicofacil.repository.ProviderRepository;
 import com.example.servicofacil.repository.ServiceRepository;
@@ -21,20 +23,16 @@ public class OrderService {
     @Autowired
     private ProviderRepository providerRepository;
 
-/*    public Order createOrder(User user, Provider provider) {
+    public Order createOrder(User user, Provider provider) {
 
         Order newOrder = new Order();
         newOrder.setUser(user);
         newOrder.setProvider(provider);
-        Provider idProvider = providerRepository.findByIdProvider(provider.getIdProvider()) ;
-        var idService = serviceRepository.findByIdProvider(idProvider);
-        //var descricao = serviceRepository.findServiceDescriptionByIdProvider(provider.getIdProvider());
-        newOrder.setDescription(idService.getServiceDescription());
-        newOrder.setServiceValue(idService.getServiceValue());
-        newOrder.setDtCadastro(new Timestamp(System.currentTimeMillis()));
+        newOrder.setDescription(provider.getServiceDetail().getServiceDescription());
+        newOrder.setServiceValue(provider.getServiceDetail().getServiceValue());
 
         return orderRepository.save(newOrder);
-    }*/
+    }
 
     public List<Order> findAllOrders() {
 

@@ -22,11 +22,13 @@ public class UserService {
     }
     public void userSave(User user) {
 
+/*
         User existUser = userRepository.findByLogin(user.getLogin());
 
         if(existUser != null){
             throw new Error("Usuario já existente");
         }
+*/
 
         user.setPassword(passwordEncoder().encode(user.getPassword()));
         userRepository.save(user);

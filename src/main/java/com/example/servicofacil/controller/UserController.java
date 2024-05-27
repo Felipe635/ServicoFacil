@@ -23,11 +23,6 @@ public class UserController {
         return "user-register";
     }
 
-        /**
-     * Processa o salvamento de um usuário recebido do formulário de registro.
-     * Valida o objeto de usuário e, em caso de erros, retorna à página de registro.
-     * Retorna o nome da view dependendo do resultado da operação.
-     */
     @PostMapping("/save")
     public String userSave(User user, BindingResult result) {
         if (result.hasErrors()) {
@@ -42,7 +37,7 @@ public class UserController {
             return "cadastro-cli";
         }
 
-        return "search";
+        return "redirect:/provider/provider-list";
     }
 
     @GetMapping("/some-page")
@@ -52,20 +47,4 @@ public class UserController {
         model.addAttribute("login", login);
         return "search"; // Retorna o nome da view
     }
-
-/*    @PostMapping("/signin")
-    public String userSignin(@ModelAttribute("user") User user, BindingResult result) {
-        try {
-            var userList = userService.findByLogin(user);
-
-            if (userList) {
-                result.reject("loginError", "Credenciais inválidas.");
-                return "login-view";
-            } else {
-                return "redirect:/user-dashboard";
-            }
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
-    }*/
 }
