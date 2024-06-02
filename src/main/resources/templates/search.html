@@ -1,54 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments :: head"></head>
+<head th:replace="fragments :: head">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1CmRXKlBx7KnX7Vv07eH5z6rNyGj1KqZdj3vxgWQM5aPe8mLH4ZwXkSFjqlC4QVf" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 20px;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 1rem;
+        }
+        .card-title {
+            color: #0056b3;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .container {
+            max-width: 960px;
+        }
+
+        .card-body {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #007BFF;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .card-body:hover {
+        background-color: #0056b3;
+    }
+
+    .card-title {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+    </style>
+</head>
 
 <body>
 
-<div th:replace="fragments :: menu" ></div>
+<div th:replace="fragments :: menu-search-guest"></div>
 
-<h2 class="titulo-form">Buscar Serviço</h2>
+<div class="container">
+    <h2 class="text-center mb-4">Buscar Serviço</h2>
 
-<form class="row row-cols-lg-auto g-3 align-items-center" action="/client-save" id="client-save" method="post">
-    <div class="col-12">
-        <label class="visually-hidden" for="inlineFormInputGroupUsername">Local</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
-        </div>
-    </div>
-
-    <div class="col-12">
-        <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-        <select class="form-select" id="inlineFormSelectPref">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-    </div>
-    <button type="submit" class="btn">Buscar</button>
-</form>
-
-<div class="lista-resultados">
-
-    <div class="card mb-3" style="max-width: 740px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+    <form class="row g-3 justify-content-center" action="#" th:action="@{/provider/search}" method="get">
+        <div class="col-md-5">
+            <div class="input-group">
+                    <input type="text" class="form-control" name="search" id="inlineFormInputGroupUsername" placeholder="Pesquise o serviço">
+                <button type="submit" class="btn-buscar">Buscar</button>
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Nome</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                </div>
+        </div>
+    </form>
+
+    <div class="lista-resultados mt-4">
+        <div th:each="provider : ${providers}" class="card mb-3" >
+            <a th:href="@{/provider/detail/{IdProvider}(IdProvider=${provider.idProvider})}" class="card-body">
+                <h6 th:text="${provider.idProvider}" class="card-title"></h6>
+            </a>
+            <div class="card-body">
+                <h5 th:text="${provider.username}" class="card-title"></h5>
+                <p th:text="${provider.serviceDetail.serviceDescription}" class="card-text"></p>
+                <h5 th:text="${provider.serviceDetail.serviceValue}" class="card-title"></h5>
             </div>
         </div>
     </div>
-
 </div>
 
-<footer th:replace="fragments :: footer" ></footer>
+<footer th:replace="fragments :: footer"></footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
 </body>
 </html>

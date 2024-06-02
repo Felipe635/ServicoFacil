@@ -3,12 +3,15 @@ package com.example.servicofacil.repository;
 import com.example.servicofacil.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+    User findByLogin(String login);
+    User findUserByIdUser(Long id);
 
-    // Consulta personalizada para encontrar usuários por nome
-    @Query("SELECT u FROM users u WHERE u.name = ?1 AND u.password = ?2")
-    List<User> getUserByLogin(String name, String password);
+    @Query("SELECT u FROM users u JOIN FETCH u.roles WHERE u.login = :login")
+    User findByLoginFetchRoles(@Param("login") String login);
 }
+

@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 
-<head th:replace="fragments :: html_head">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:href="@{/css/cadastro.css}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Cadastro</title>
-</head>
+<head th:replace="fragments :: head-cadastro"></head>
+
 <body>
 
-<div th:replace="fragments :: menu" ></div>
+<nav th:replace="fragments :: menu-cadastro"></nav>
 
 <div class="containerr">
     <div class="formulario">
@@ -18,9 +13,9 @@
 
         <form th:action="@{/user/save}" th:object="${user}" method="post">
             <div class="form-floating mb-3 row">
-                <input type="text" class="form-control" name="name" id="floatingInput" th:field="*{name}">
+                <input type="text" class="form-control" name="login" id="floatingInput" th:field="*{login}">
                 <label class="text-form" for="floatingInput">Nome</label>
-                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                <span class="text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span>
             </div>
             <div class="form-floating mb-3 row">
                 <input type="password" class="form-control" name="password" id="floatingInput" th:field="*{password}">
@@ -68,7 +63,7 @@
         </form>
     </div>
 
-    <div th:replace="fragments :: footer" ></div>
+    <footer th:replace="fragments :: footer" ></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

@@ -1,0 +1,66 @@
+.botao-form{
+    background-color: #2e7bb4;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+    padding: 5px;
+    border: #2e7bb4 solid 2px;
+}
+
+.link{
+ text-decoration: none;
+ color: gray;
+}
+
+.botao-form:hover{
+   background-color: #e6e5f8;
+   color: #2e7bb4 !important;
+   transition: 0.1s ease-in-out !important;
+}
+
+
+.containerr{
+    display: flex;
+    justify-content: space-between;
+    width: 98vw;
+    height: 91vh;
+}
+
+.formulario{
+    width: 60% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.titulo-form{
+    margin-bottom: 40px;
+}
+
+.row{
+    width: 70%;
+}
+
+@media screen and (max-width: 900px)  {
+
+    .botao-form{
+        width: 25%;
+    }
+
+     .img{
+        display: none;
+    }
+
+    .formulario{
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+    }
+
+}

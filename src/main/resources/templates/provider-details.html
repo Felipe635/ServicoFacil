@@ -3,26 +3,26 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
-<div th:replace="fragments :: menu" ></div>
+<div th:replace="fragments :: menu-cliente" ></div>
 
 <div class="dash">
     <div class="cima">
-        <div class="foto"></div>
-        <h2 class="nome">Nome</h2>
-        <h3 class="local">Cidade / Bairro</h3>
-        <ul class="menu">
-            <li class="menu-item">Serviço 1</li>
-            <li class="menu-item">Serviço 2</li>
-            <li class="menu-item">Serviço 3</li>
-        </ul>
+        <img src="/css/img/trabalhador.png" alt="" class="foto">
+        <h2 th:text="${provider.username}" class="nome"></h2>
+        <h3 th:text="${provider.address}" class="nome"></h3>
+        <h3 th:text="${provider.phone}" class="nome"></h3>
     </div>
     <div class="meio">
-        <a href="" class="btn">Agendar Serviço</a>
+        <form th:action="@{/order/createOrder}" method="post">
+            <button type="submit" class="btn-agendar">Agendar Serviço</button>
+        </form>
     </div>
-    <div class="baixo">
-        <ul class="menu-avali">
-            <li><a href="" class="menu-avali-item">Avaliação 1 (se rolar)</a></li>
-        </ul>
+   <div class="baixo-provider">
+       <br>
+       <h5>Serviços</h5>
+       <ul class="menu">
+           <li th:text="${provider.serviceDetail.serviceName}" class="menu-item"></li>
+       </ul>
     </div>
 
 </div>

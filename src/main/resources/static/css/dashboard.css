@@ -11,8 +11,24 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.dash{
-    height: 90vh;
+.texto-agenda{
+    margin-top: 25px;
+    text-align: center;
+}
+
+.card-agenda{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    border: 0.5px solid #DCDCDC;
+    border-radius: 5px;
+    margin: 30px;
+    padding-top: 15px;
+}
+
+.card-texto{
+    max-width: 500px;
+    text-align: center;
 }
 
 .menu{
@@ -29,7 +45,6 @@
 }
 
 .foto{
-    background-color: black;
     border-radius: 50%;
     width: 200px;
     height: 200px;

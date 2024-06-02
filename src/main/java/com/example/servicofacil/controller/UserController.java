@@ -2,36 +2,29 @@ package com.example.servicofacil.controller;
 
 import com.example.servicofacil.model.User;
 import com.example.servicofacil.service.UserService;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired
-    private UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    private final UserService userService;
 
     @GetMapping("/register-view")
     public String showUserRegister(Model model) {
-        model.addAttribute("user",
-                new User());
+        model.addAttribute("user", new User());
         return "user-register";
     }
 
     @PostMapping("/save")
-    public String userSave(@Valid @ModelAttribute("user") User user, BindingResult result) {
-
+    public String userSave(User user, BindingResult result) {
         if (result.hasErrors()) {
             return "user-register";
         }
@@ -39,25 +32,19 @@ public class UserController {
         try {
             userService.userSave(user);
         } catch (Exception ex) {
-
+            ex.printStackTrace();
+            result.reject("saveError", "Houve um erro ao salvar o usuário.");
+            return "cadastro-cli";
         }
 
-        return "redirect:/nav-bar";
+        return "redirect:/provider/provider-list";
     }
 
-    @PostMapping("/signin")
-    public String userSignin(@ModelAttribute("user") User user, BindingResult result) {
-
-        try {
-            var userList = userService.UserGetByLogin(user);
-
-            if (userList.isEmpty()) {
-            } else {
-            }
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
-
-        return "redirect:/nav-bar";
+    @GetMapping("/some-page")
+    public String somePage(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String login = authentication.getName(); // ou obtenha o nome do usuário de outro modo, conforme necessário
+        model.addAttribute("login", login);
+        return "search"; // Retorna o nome da view
     }
 }

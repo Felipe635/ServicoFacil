@@ -1,26 +1,35 @@
 package com.example.servicofacil.model;
 
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Objects;
+import java.util.List;
 
 @Getter
-@Entity
+@Setter
+@Entity(name = "users")
 @Table(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Setter Long id;
+    @Column(name = "id_user")
+    private Long idUser;
 
-    @NotEmpty(message = "O nome é obrigatório")
-    private @Setter String name;
+    @NotEmpty(message = "O login é obrigatório")
+    @Column(name = "login", unique = true)
+    private String login;
 
     @NotEmpty(message = "A senha é obrigatória")
-    private @Setter String password;
+    @Column(name = "password")
+    private String password;
 
     @NotEmpty(message = "O e-mail é obrigatório")
     private @Setter String email;
@@ -36,23 +45,14 @@ public class User {
 
     @NotEmpty(message = "O endereço é obrigatório")
     private @Setter String address;
+    
+    @NotEmpty(message = "O numero é obrigatório")
+    private @Setter String addressNumber;
 
     @NotEmpty(message = "O bairro é obrigatório")
     private @Setter String district;
 
-    @NotEmpty(message = "O numero é obrigatório")
-    private @Setter String addressNumber;
+    @ManyToMany
+    private List<Role> roles;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(password, user.password) && Objects.equals(email, user.email) && Objects.equals(cpf, user.cpf) && Objects.equals(phone, user.phone) && Objects.equals(zipcode, user.zipcode) && Objects.equals(address, user.address) && Objects.equals(district, user.district) && Objects.equals(addressNumber, user.addressNumber);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, password, email, cpf, phone, zipcode, address, district, addressNumber);
-    }
 }
